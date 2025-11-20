@@ -72,5 +72,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Credits
 
-Inspired by [reactbits.dev](https://reactbits.dev) for animation patterns and design inspiration.
+Inspired by [reactbits.dev](https://reactbits.dev) for animation patterns and design inspiration. 
 
