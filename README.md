@@ -51,37 +51,6 @@ yarn dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Customization
-
-### Update Personal Information
-
-1. **Hero Section** (`components/Hero.tsx`):
-   - Update name and title
-   - Modify social media links
-
-2. **About Section** (`components/About.tsx`):
-   - Update personal description
-   - Modify statistics
-
-3. **Skills Section** (`components/Skills.tsx`):
-   - Update skill categories and proficiency levels
-
-4. **Experience Section** (`components/Experience.tsx`):
-   - Add your work history
-
-5. **Projects Section** (`components/Projects.tsx`):
-   - Add your projects with descriptions and links
-
-6. **Contact Section** (`components/Contact.tsx`):
-   - Update contact information
-   - Connect form to your email service
-
-### Styling
-
-- Colors and gradients can be customized in `tailwind.config.ts`
-- Global styles are in `app/globals.css`
-- Component-specific styles use Tailwind classes
-
 ## Build for Production
 
 ```bash
@@ -91,7 +60,7 @@ npm start
 
 ## Technologies Used
 
-- **Next.js 14**: React framework
+- **Next.js 15**: React framework
 - **TypeScript**: Type safety
 - **Tailwind CSS**: Utility-first CSS
 - **Framer Motion**: Animation library
