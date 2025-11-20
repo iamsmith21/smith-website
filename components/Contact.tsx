@@ -13,16 +13,39 @@ export default function Contact() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    setStatus('idle')
+    setStatusMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null)
+        throw new Error(data?.error || 'Failed to send message.')
+      }
+
+      setStatus('success')
+      setStatusMessage('Thanks! Your message is on its way.')
       setFormData({ name: '', email: '', message: '' })
-      alert("Thank you for your message! I'll get back to you soon.")
-    }, 1000)
+    } catch (error) {
+      console.error(error)
+      setStatus('error')
+      setStatusMessage(
+        'Something went wrong. Please try again or email me directly.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -216,6 +239,17 @@ export default function Contact() {
                   </>
                 )}
               </motion.button>
+
+              {status !== 'idle' && (
+                <div
+                  role="status"
+                  className={`text-sm ${
+                    status === 'success' ? 'text-green-400' : 'text-red-400'
+                  }`}
+                >
+                  {statusMessage}
+                </div>
+              )}
             </div>
           </motion.form>
         </div>
