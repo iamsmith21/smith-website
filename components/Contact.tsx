@@ -108,8 +108,8 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: 'Email',
-                  value: 'deep.smith100@gmail.com',
-                  href: 'mailto:deep.smith100@gmail.com',
+                  value: 'contact@smithpatel.com',
+                  href: 'mailto:contact@smithpatel.com',
                 },
                 {
                   icon: Phone,

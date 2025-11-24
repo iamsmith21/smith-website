@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import CanvasCursor from '@/components/CanvasCursor'
 
 export const metadata: Metadata = {
   title: 'Smith Portfolio',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CanvasCursor />
+        {children}
+      </body>
     </html>
   )
 }

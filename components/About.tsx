@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import ProfileCard from './ProfileCard'
 
 export default function About() {
   const ref = useRef(null)
@@ -76,45 +77,23 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
-              className="relative"
+              className="relative flex justify-center"
             >
-              <motion.div
-                className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-8 backdrop-blur-sm border border-purple-500/30"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-          
-                <div className="grid grid-cols-2 gap-6">
-                  {[
-                    { label: 'Too many to count', value: 'Systems I’ve Broken & Fixed' },
-                    { label: 'React, Node.js, Docker', value: 'Tech I Actually Enjoy' },
-                    { label: 'Everything humans forget to do', value: 'Things I Automate' },
-                    { label: 'Undefined (overflow error)', value: 'Coffee Required Per Sprint' },                    
-                  ].map((stat, index) => (
-                    <motion.div
-                      key={stat.label}
-                      className="text-center"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: index * 0.1 + 0.5 }}
-                    >
-                      <div className="text-3xl font-bold gradient-text mb-2">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-400">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Decorative elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl -z-10"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5],
+              <ProfileCard
+                avatarUrl="/profile-avatar.jpg"
+                name="Smith Patel"
+                title="Full-Stack Developer"
+                handle="iamsmith21"
+                status="Available for opportunities"
+                contactText="Contact Me"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                transition={{ duration: 4, repeat: Infinity }}
+                behindGlowColor="rgba(125, 190, 255, 0.3)"
+                innerGradient="transparent"
               />
             </motion.div>
           </div>

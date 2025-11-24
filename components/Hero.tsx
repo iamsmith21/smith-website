@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
+import DecryptedText from './DecryptedText'
+import GradientText from './GradientText'
 
 export default function Hero() {
   const containerVariants = {
@@ -40,40 +42,62 @@ export default function Hero() {
         >
           <div className="mx-auto max-w-5xl">
             <motion.div variants={itemVariants} className="mb-6">
-              <motion.span
-                className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-sm font-medium mb-4"
-                whileHover={{ scale: 1.05 }}
-              >
+              <div className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-sm font-medium mb-4">
                 Welcome to my portfolio
-              </motion.span>
+              </div>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text">Hi, I'm Smith Patel</span>
-              <br />
-              </motion.h1>
-              <motion.h2 variants={itemVariants} className="text-5xl md:text-5xl font-bold mb-4">
-              <motion.span
-                className="text-white"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 3 }}
+            <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-bold mb-1">
+              <GradientText
+                colors={["#a855f7", "#ec4899", "#a855f7", "#ec4899", "#a855f7"]}
+                animationSpeed={30}
+                showBorder={false}
+                className="text-6xl md:text-8xl font-bold"
               >
-                Full-Stack Developer
-              </motion.span>
-              </motion.h2>
+                <DecryptedText
+                  text="Hi, I'm Smith Patel"
+                  animateOn="view"
+                  sequential={true}
+                  revealDirection="start"
+                  speed={100}
+                />
+              </GradientText>
+            </motion.h1>
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-semibold mb-4">
+              <GradientText
+                colors={["#ffffff", "#ffffff", "#000000", "#000000"]}
+                animationSpeed={15}
+                showBorder={false}
+                className="text-3xl md:text-5xl font-semibold"
+              >
+                <DecryptedText
+                  text="Full-Stack Developer"
+                  animateOn="view"
+                  sequential={true}
+                  revealDirection="start"
+                  speed={100}
+                />
+              </GradientText>
+            </motion.h2>
 
             <motion.p
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12"
             >
-              Code with intention. Systems with depth. Experiences that last...
+              <DecryptedText
+                text="Code with intention. Systems with depth. Experiences that last..."
+                animateOn="view"
+                sequential={true}
+                revealDirection="end"
+                speed={50}
+                className="text-gray-400"
+              />
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-16">
               <motion.a
                 href="#projects"
-                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold glow-hover"
+                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold glow-hover relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -81,7 +105,7 @@ export default function Hero() {
               </motion.a>
               <motion.a
                 href="#contact"
-                className="px-8 py-4 bg-transparent border-2 border-purple-500 rounded-full text-purple-400 font-semibold"
+                className="px-8 py-4 bg-transparent border-2 border-purple-500 rounded-full text-purple-400 font-semibold relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -2, backgroundColor: 'rgba(139, 92, 246, 0.1)' }}
                 whileTap={{ scale: 0.95 }}
               >
