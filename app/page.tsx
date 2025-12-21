@@ -10,7 +10,7 @@ import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
-
+import Snowfall from 'react-snowfall'
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 })
@@ -36,6 +36,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen">
+      <Snowfall color='#82C3D9' />
       {/* Animated background gradient */}
       <motion.div
         className="fixed inset-0 -z-10"
